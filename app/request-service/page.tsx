@@ -367,7 +367,7 @@ export default function RequestServicePage() {
                 }
                 rows={5}
                 placeholder="Describe your request..."
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-slate-400 focus:bg-white"
+                className="w-full rounded-2xl border text-neutral-700 border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-slate-400 focus:bg-white"
               />
             </div>
 
@@ -414,7 +414,7 @@ function InputField({
         {label}
       </label>
 
-      <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 transition focus-within:border-slate-400 focus-within:bg-white">
+      <div className="flex items-center gap-3 rounded-2xl border text-neutral-700 border-slate-200 bg-slate-50 px-4 py-3 transition focus-within:border-slate-400 focus-within:bg-white">
         <div className="text-slate-400">
           {icon}
         </div>
