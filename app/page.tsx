@@ -1,9 +1,10 @@
 import React from 'react'
+import HomePage from './pages/HomePage'
 
 const page = () => {
   return (
     <div>
-      <h2 className='text-sky-200'>Hello</h2>
+      <HomePage/>
     </div>
   )
 }
