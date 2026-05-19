@@ -30,7 +30,7 @@ A production-inspired full-stack lead distribution system that automatically rou
 
 ## Landing Page
 
-![Landing](https://your-image-link.com/landing.png)
+![Landing](https://postimg.cc/dkDqgPFC)
 
 ---
 
