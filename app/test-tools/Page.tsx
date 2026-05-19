@@ -1,7 +1,7 @@
 "use client";
 
+import BackToHomeLink from "@/app/components/BackToHomeLink";
 import { useState } from "react";
-import Link from "next/link";
 import {
   AlertTriangle,
   RotateCcw,
@@ -166,12 +166,7 @@ export default function TestToolsPage() {
   return (
     <main className="min-h-screen bg-slate-950 px-4 py-8 text-white">
       <div className="mx-auto max-w-7xl">
-        <Link
-          href="/"
-          className="mb-6 inline-block text-sm text-slate-400 hover:text-white"
-        >
-          ← Back to home
-        </Link>
+        <BackToHomeLink variant="dark" />
 
         <div className="mb-8 flex items-center gap-4 rounded-2xl border border-red-500/30 bg-red-500/10 px-6 py-5">
           <AlertTriangle className="text-red-400 shrink-0" size={24} />

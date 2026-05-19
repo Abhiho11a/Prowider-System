@@ -1,5 +1,6 @@
 "use client";
 
+import BackToHomeLink from "@/app/components/BackToHomeLink";
 import { FormEvent, useState } from "react";
 import {
   User,
@@ -92,7 +93,7 @@ export default function RequestServicePage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-50 px-4 py-10 flex items-center justify-center">
+    <main className="min-h-screen bg-slate-50 px-4 py-10">
       {toast.type && (
         <div
           className={`fixed top-5 right-5 z-50 flex items-center gap-3 rounded-xl border px-5 py-4 shadow-lg backdrop-blur-md ${
@@ -110,7 +111,9 @@ export default function RequestServicePage() {
         </div>
       )}
 
-      <div className="w-full max-w-2xl">
+      <div className="mx-auto w-full max-w-2xl">
+        <BackToHomeLink />
+
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-bold text-slate-900">
             Request a Service

@@ -33,7 +33,14 @@ export async function POST(request: Request) {
 
     await prisma.$transaction(async (tx) => {
       await tx.provider.updateMany({
-        data: { monthly_quota: 10 },
+        data: {
+          monthly_quota: 10,
+          leads_received_count: 0,
+        },
+      });
+
+      await tx.roundRobinState.updateMany({
+        data: { current_index: 0 },
       });
 
       await tx.webhookEvent.create({

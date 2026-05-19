@@ -1,4 +1,14 @@
-const clients = new Set<ReadableStreamDefaultController>();
+const globalForSse = globalThis as {
+  sseClients?: Set<ReadableStreamDefaultController>;
+};
+
+const clients =
+  globalForSse.sseClients ??
+  new Set<ReadableStreamDefaultController>();
+
+if (process.env.NODE_ENV !== "production") {
+  globalForSse.sseClients = clients;
+}
 
 export function addClient(controller: ReadableStreamDefaultController) {
   clients.add(controller);

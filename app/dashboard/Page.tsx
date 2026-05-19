@@ -1,5 +1,6 @@
 "use client";
 
+import BackToHomeLink from "@/app/components/BackToHomeLink";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import {
@@ -92,17 +93,15 @@ export default function DashboardPage() {
 
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-8">
-      <nav className="mx-auto mb-8 flex max-w-7xl items-center justify-between">
-        <Link href="/" className="text-lg font-bold text-slate-900">
-          Prowider
-        </Link>
+      <div className="mx-auto mb-8 flex max-w-7xl items-center justify-between">
+        <BackToHomeLink className="mb-0" />
         <Link
           href="/request-service"
-          className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-100"
+          className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-100"
         >
           Request Service
         </Link>
-      </nav>
+      </div>
 
       <div className="mx-auto max-w-7xl">
         <div className="mb-8 flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:flex-row md:items-center md:justify-between">
