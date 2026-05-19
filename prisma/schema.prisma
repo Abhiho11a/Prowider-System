@@ -1,13 +1,70 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
-  provider = "prisma-client"
-  output   = "../app/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
+}
+
+model Service {
+  id              Int              @id
+  name            String           @unique
+  leads           Lead[]
+  roundRobinState RoundRobinState?
+
+  @@map("services")
+}
+
+model Provider {
+  id                   Int              @id
+  name                 String           @unique
+  monthly_quota        Int              @default(10)
+  leads_received_count Int              @default(0)
+  leadAssignments      LeadAssignment[]
+
+  @@map("providers")
+}
+
+model Lead {
+  id              String           @id @default(uuid())
+  customer_name   String
+  phone_number    String
+  city            String
+  service_id      Int
+  description     String
+  created_at      DateTime         @default(now())
+  service         Service          @relation(fields: [service_id], references: [id])
+  leadAssignments LeadAssignment[]
+
+  @@unique([phone_number, service_id], name: "phone_number_service_id")
+  @@map("leads")
+}
+
+model LeadAssignment {
+  id          String   @id @default(uuid())
+  lead_id     String
+  provider_id Int
+  assigned_at DateTime @default(now())
+  lead        Lead     @relation(fields: [lead_id], references: [id], onDelete: Cascade)
+  provider    Provider @relation(fields: [provider_id], references: [id])
+
+  @@unique([lead_id, provider_id])
+  @@map("lead_assignments")
+}
+
+model RoundRobinState {
+  id            Int     @id
+  service_id    Int     @unique
+  current_index Int     @default(0)
+  service       Service @relation(fields: [service_id], references: [id])
+
+  @@map("round_robin_state")
+}
+
+model WebhookEvent {
+  id           String   @id
+  event_type   String
+  processed_at DateTime @default(now())
+
+  @@map("webhook_events")
 }

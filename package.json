@@ -6,17 +6,29 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:seed": "prisma db seed",
+    "db:setup": "prisma generate && prisma db push && prisma db seed"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^7.8.0",
+    "dotenv": "^16.6.1",
     "lucide-react": "^1.16.0",
     "next": "14.2.35",
+    "pg": "^8.21.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tsx": "^4.22.2"
   },
   "devDependencies": {
     "@types/node": "^20.19.41",
+    "@types/pg": "^8.20.0",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
