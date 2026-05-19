@@ -1,6 +1,6 @@
 "use client";
 
-import BackToHomeLink from "@/app/components/BackToHomeLink";
+import BackToHomeLink from '@/components/BackToHomeLink'
 import { useState } from "react";
 import {
   AlertTriangle,

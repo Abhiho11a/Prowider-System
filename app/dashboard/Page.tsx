@@ -1,6 +1,6 @@
 "use client";
 
-import BackToHomeLink from "@/app/components/BackToHomeLink";
+import BackToHomeLink from '@/components/BackToHomeLink'
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import {
